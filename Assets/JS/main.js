@@ -2,34 +2,42 @@ $(document).ready(function() {
 
   var game = {
     currentScore: 0,
-    currentScoreDiv: '',
-    currentTargetDiv: '',
+    currentScoreDiv: $('#score'),
     currentTarget: 0,
+    currentTargetDiv: $('#point-target'),
+    totalWins: 0,
+    totalWinsDiv: $('#wins'),
+    totalLoses: 0,
+    totalLosesDiv: $('#loses'),
     crystals: {
-      crystalA: '',
-      crystalB: '',
-      crystalC: '',
-      crystalD: ''
+      crystalA: $('#crystal-A'),
+      crystalB: $('#crystal-B'),
+      crystalC: $('#crystal-C'),
+      crystalD: $('#crystal-D')
     },
     init: function() {
-      this.cacheDom();
       this.assignPoints();
       this.clickListen();
       this.setTarget();
-    },
-    cacheDom: function() {
-      this.crystals.crystalA = $('#crystal-A');
-      this.crystals.crystalB = $('#crystal-B');
-      this.crystals.crystalC = $('#crystal-C');
-      this.crystals.crystalD = $('#crystal-D');
-      this.currentTargetDiv = $('#point-target');
-      this.currentScoreDiv = $('#score');
     },
     clickListen: function() {
       $('.crystal').click(function(){
       console.log(this.dataset.points);
       game.currentScore += parseInt(this.dataset.points);
       game.currentScoreDiv.html(game.currentScore);
+
+      // TODO: check score after each click
+      if (game.currentScore > game.currentTarget) {
+        game.totalLoses++;
+        game.totalLosesDiv.html(game.totalLoses);
+        game.newRound();
+
+      } else if (game.currentScore === game.currentTarget) {
+        game.totalWins++;
+        game.totalWinsDiv.html(game.totalWins);
+        game.newRound();
+      }
+
       });
     },
     createPoints: function() {
@@ -47,6 +55,12 @@ $(document).ready(function() {
       this.currentTarget = Math.floor(Math.random() * 102) + 19;
       console.log(this.currentTarget);
       this.currentTargetDiv.html(this.currentTarget);
+    },
+    newRound: function() {
+      this.assignPoints();
+      this.setTarget();
+      this.currentScore = 0;
+      this.currentScoreDiv.html(this.currentScore);
     }
   }
 
