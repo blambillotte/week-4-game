@@ -1,0 +1,45 @@
+
+body {
+  background-image: url("../Images/sayagata-400px.png");
+}
+
+.container {
+  width: 600px;
+  margin: 100px auto;
+}
+
+/********* Game Elements ********/
+
+.target {
+  height: 100px;
+  width: 40%;
+  padding: 10px 15px;
+  border-radius: 5px;
+  background-color: #e0e0e0;
+}
+
+/** Crystals **/
+.crystals {
+  display: flex;
+}
+
+.crystal {
+  width: 100px;
+  margin: 0 10px;
+  cursor: pointer;
+  flex: 1;
+
+}
+
+.crystal > img {
+  opacity: .8;
+  transition: all .2s ease-in-out;
+}
+
+.crystal > img:active {
+  transform: scale(1.1);
+}
+
+.crystal > img:hover {
+  opacity: 1;
+}
