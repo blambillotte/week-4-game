@@ -1,26 +1,58 @@
+* {
+  padding: 0;
+  margin: 0;
+}
 
 body {
   background-image: url("../Images/sayagata-400px.png");
+  font-family: 'Modern Antiqua', cursive;
 }
 
 .container {
-  width: 600px;
-  margin: 100px auto;
+  width: 80vw;
+  max-width: 700px;
+  margin: 30px auto;
+  animation: fadein 2s;
+}
+
+h2 {
+  padding-top: 5px;
+}
+
+span {
+  padding: 5px 7px;
+  line-height: 30px;
 }
 
 /********* Game Elements ********/
 
-.target {
-  height: 100px;
+.scoreboard {
+  height: 150px;
   width: 40%;
   padding: 10px 15px;
   border-radius: 5px;
-  background-color: #e0e0e0;
+  background-color: rgba(134, 152, 243, 0.44);
+  box-shadow: 0px 0px 7px 2px #c1caf7;
+  margin: 45px auto;
+  text-align: center;
+}
+
+.instructions {
+  background-color: rgba(252, 184, 128, 0.35);
+  box-shadow: 0px 0px 2px 3px rgba(252, 184, 128, 0.35);
+  padding: 16px;
+  border-radius: 8px;
+  width: 53vw;
+  margin: 32px auto;
+  text-align: center;
+  line-height: 22px;
 }
 
 /** Crystals **/
 .crystals {
   display: flex;
+  margin-top: 30px;
+  animation: fadein 3s;
 }
 
 .crystal {
@@ -28,6 +60,7 @@ body {
   margin: 0 10px;
   cursor: pointer;
   flex: 1;
+  transition: all .2s ease-in-out;
 
 }
 
@@ -42,4 +75,18 @@ body {
 
 .crystal > img:hover {
   opacity: 1;
+}
+
+
+/*Content gracfully fades in on load*/
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/*Don't allow headers to break container on mobile*/
+@media (max-width: 600px) {
+  h2 {
+    font-size: 14px;
+  }
 }

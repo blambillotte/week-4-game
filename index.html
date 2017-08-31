@@ -2,8 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css?family=Modern+Antiqua" rel="stylesheet">
   <link rel="stylesheet" href="./Assets/CSS/main.css">
   <title>Crystals Game</title>
+  <link rel="icon" type="image" href="./Assets/Images/favicon.png" sizes="32x32">
 </head>
 <body>
 
@@ -11,17 +14,22 @@
 
     <div class="header"></div>
 
-    <div class="instructions"></div>
 
-    <div class="target">
+    <div class="scoreboard">
       <h2>Current Target</h2>
       <span id="point-target">50</span>
+      <hr>
+      <div class="round-scores">
+        Wins: <span id="wins">0</span>
+        Loses: <span id="loses">0</span>
+      </div>
+      <hr>
+      <div class="current-score">
+        <h2>Round Score</h2>
+        <span id="score">0</span>
+      </div>
     </div>
 
-    <div class="round-scores">
-      Wins: <span id="wins"></span>
-      Loses: <span id="loses"></span>
-    </div>
 
     <div class="crystals">
       <div class="crystal" id="crystal-A"><img src="./Assets/Images/blue_diamond.svg" alt=""></div>
@@ -30,8 +38,12 @@
       <div class="crystal" id="crystal-D"><img src="./Assets/Images/yellow_diamond.svg" alt=""></div>
     </div>
 
-    <div class="current-score">
-      <span id="score"></span>
+    <div class="instructions">
+      <h3>Directions</h3>
+      <p>You will be given a random point target at the start of a round.</p>
+      <p>Each of the four crystals below are also assigned a random point value. Click on them to reveal their point value and add that value to your round score</p>
+      <p>You win the round by matching the round score with the target exactly. Overshoot and you will lose!</p>
+      <p>Good Luck!</p>
     </div>
 
   </div>
