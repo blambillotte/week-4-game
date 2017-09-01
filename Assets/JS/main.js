@@ -1,3 +1,5 @@
+//My Goal: Practice formatting the code to be more modular with Object Literal style
+
 $(document).ready(function() {
 
   var game = {
@@ -21,12 +23,13 @@ $(document).ready(function() {
       this.setTarget();
     },
     clickListen: function() {
-      $('.crystal').click(function(){
+      $('.crystal').on('click', this.updateScores)
+    },
+    updateScores: function() {
       //Retrive the data-points value from the crystal, update the DOM and call the checkWinLose function.
       game.currentScore += parseInt(this.dataset.points);
       game.currentScoreDiv.html(game.currentScore);
       game.checkWinLose();
-      });
     },
     checkWinLose: function() {
       if (this.currentScore > this.currentTarget) {
@@ -48,6 +51,7 @@ $(document).ready(function() {
       return point;
     },
     assignPoints: function() {
+      // TODO: Figure out how to loop through the crystals instead of repeating this code.
       this.crystals.crystalA.attr('data-points', this.createPoints());
       this.crystals.crystalB.attr('data-points', this.createPoints());
       this.crystals.crystalC.attr('data-points', this.createPoints());
@@ -67,7 +71,7 @@ $(document).ready(function() {
       this.crystals.crystalD.css("order", this.createPoints());
     },
     newRound: function() {
-      //Rest round varibles 
+      //Reset round varibles
       this.assignPoints();
       this.setTarget();
       this.currentScore = 0;

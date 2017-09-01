@@ -27,7 +27,6 @@ span {
 /********* Game Elements ********/
 
 .scoreboard {
-  height: 150px;
   width: 40%;
   padding: 10px 15px;
   border-radius: 5px;
@@ -35,6 +34,22 @@ span {
   box-shadow: 0px 0px 7px 2px #c1caf7;
   margin: 45px auto;
   text-align: center;
+}
+
+#score {
+  background-color: rgba(101, 124, 243, 0.45);
+  border-radius: 4px;
+  padding: 4px 41px;
+}
+
+#point-target {
+  background-color: rgba(174, 233, 233, 0.83);
+  border-radius: 4px;
+  padding: 4px 41px;
+}
+
+.target-container {
+  margin-bottom: 7px;
 }
 
 .instructions {
